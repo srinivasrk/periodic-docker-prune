@@ -29,19 +29,14 @@ def docker(*args):
 def prune():
     print('Running docker system prune..')
     print(
-        docker('system', 'prune', '--volumes', '--all', '--force'),
-    )
-
-    print('Running docker volume prune...')
-    print(
-        docker('volume', 'prune', '--force'),
+        docker('system', 'prune', '--all', '--force'),
     )
 
 
 if __name__ == '__main__':
     validate_socket()
 
-    at = env('AT', default='05:44')
+    at = env('AT', default='00:01')
     print(f'Scheduling periodic prune at {at}...')
 
     schedule.every().day.at(at).do(prune)
