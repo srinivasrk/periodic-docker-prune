@@ -14,7 +14,7 @@ services:
   periodic-prune:
     image: f213/periodic-docker-prune:1.1.0
         
-    # may be omitted, 05:24 by default
+    # may be omitted, 00:01 by default
     environment:
       AT: '02:44'
     
